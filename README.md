@@ -58,7 +58,8 @@ The code is written for an NVIDIA GPU with CUDA. `tof3d/tof3d_examples.py` (line
 `tof3d/tests/check_mma_gpu.py` start Taichi with `C.init("cuda", mem_gb=11.0)`, which reserves about 11 GB of GPU
 memory; on a card with less memory, lower `mem_gb` in that line of your copy. `pip` installs Taichi but not the GPU
 driver. Without a CUDA GPU, Taichi prints the warning `Arch=[<Arch.cuda: 3>] is not supported, falling back to CPU`
-and runs on the CPU: the quick start below took 49 s on an Apple M4 computer, but the full runs of the article are much slower on a CPU.
+and runs on the CPU: the quick start below took 49 s on an Apple M4 computer, but the full runs of the article are much
+slower on a CPU.
 
 ## Quick start
 
@@ -99,7 +100,9 @@ Four checks run on the CPU: `check_gradients.py cpu`, `check_mg.py exato cpu` (i
 Two need the CUDA GPU: `check_mg.py iter cuda` and `check_mma_gpu.py`. Each check writes a JSON file next to it and must
 report that it passed (`"passou": true`), except `check_mg_iter.json`, which compares iteration counts and times and has
 no pass or fail. The JSON files committed here come from the code used for the runs of the article; running the checks
-overwrites them.
+overwrites them. Without a CUDA GPU, the two GPU checks fall back to the CPU: on an Apple M4 computer all five checks
+passed in about 6.5 minutes, and the multigrid needed more iterations than on the GPU in three of the seven cases of
+`check_mg_iter.json`.
 
 ## Output files
 
