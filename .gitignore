@@ -1,0 +1,6 @@
+# outputs of runs and checks
+tof3d/results/
+tof3d/tests/check_*.log
+__pycache__/
+*.pyc
+.DS_Store
