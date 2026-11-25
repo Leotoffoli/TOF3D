@@ -1,0 +1,41 @@
+{
+ "T1_subproblema_vs_scipy": {
+  "instancias": 40,
+  "sem_referencia_viavel": 0,
+  "referencia": "melhor ponto vi\u00e1vel de trust-constr e SLSQP, cada um a partir do centro e do nosso ponto",
+  "max_excesso_obj_rel": 5.991559974827254e-07,
+  "max_dif_x_ao_melhor": 2.886641670973855e-06,
+  "max_violacao_nossa": 0.0,
+  "passa": true
+ },
+ "T3_brinquedo": {
+  "x_mma": [
+   2.0175186269952667,
+   1.7800114323699139,
+   1.2375071688834187
+  ],
+  "x_slsqp": [
+   2.017518584045885,
+   1.7800114463864554,
+   1.237507137658842
+  ],
+  "max_dif": 4.2949381828805144e-08,
+  "viol_max": 0.0,
+  "passa": true
+ },
+ "T4_quadratico_linear": {
+  "max_dif": 7.91437023153329e-06,
+  "passa": true
+ },
+ "T5_minmax": {
+  "max_dif": 1.1102230246251565e-16,
+  "passa": true
+ },
+ "T6_tempo": {
+  "n": 221184,
+  "m": 4,
+  "s_por_passo": 0.7059977054595947,
+  "passos_newton": 19
+ },
+ "passou": true
+}

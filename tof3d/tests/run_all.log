@@ -1,0 +1,7 @@
+check_gradients rc=0
+check_mg exato rc=0
+check_mg iter rc=0
+check_mma rc=0
+check_mma_gpu rc=0
+check_filters rc=0
+FIM_TESTES

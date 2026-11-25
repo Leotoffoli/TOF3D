@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "TOF3D"
+type: software
+abstract: >-
+  Open source Python code for three-dimensional density-based topology
+  optimization in single precision on one consumer GPU: stress constraints,
+  robustness against manufacturing errors, compliant mechanisms and porous infill.
+license: MIT
+version: "0.1"
+doi: 10.5281/zenodo.24050327
+authors:
+  - family-names: "Pedrini"
+    given-names: "Leonilson Toffoli"
+    orcid: "https://orcid.org/0000-0002-9482-1007"
+    affiliation: "Instituto Federal do Espírito Santo (IFES)"
+  - family-names: "Andrade"
+    given-names: "Rodolfo G. M."
+    orcid: "https://orcid.org/0000-0003-3956-5941"
+    affiliation: "Instituto Federal do Espírito Santo (IFES)"
+  - family-names: "Ferro"
+    given-names: "Rafael M."
+    orcid: "https://orcid.org/0000-0002-3229-2170"
+    affiliation: "Instituto Federal do Espírito Santo (IFES)"
+keywords:
+  - topology optimization
+  - graphics processing units
+  - stress constraints
+  - robust formulation
+  - compliant mechanisms
+  - porous infill
