@@ -4,3 +4,4 @@ tof3d/tests/check_*.log
 __pycache__/
 *.pyc
 .DS_Store
+.venv/

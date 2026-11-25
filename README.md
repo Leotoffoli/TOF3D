@@ -41,15 +41,24 @@ of that record. The README of the record, with the list of its archives and the 
 The optimizations of the article ran on Ubuntu 24.04 with Python 3.12.12, NumPy 2.3.5, SciPy 1.16.3 and Taichi 1.7.4,
 on an NVIDIA RTX 3060 with 12 GB (driver 595.91.07, CUDA 13.2).
 
+These package versions need Python 3.11, 3.12 or 3.13: NumPy 2.3.5 and SciPy 1.16.3 require Python 3.11 or newer, and
+Taichi 1.7.4 has no packages for Python 3.14. The Python 3.9 that comes with macOS is too old, and with it `pip` stops
+with "No matching distribution found for numpy==2.3.5". Install a newer Python first, for example
+`brew install python@3.12` on macOS. A virtual environment keeps the packages apart from the rest of the system:
+
 ```bash
 git clone https://github.com/Leotoffoli/TOF3D.git
 cd TOF3D
+python3.12 -m venv .venv
+source .venv/bin/activate
 python -m pip install numpy==2.3.5 scipy==1.16.3 taichi==1.7.4
 ```
 
-`pip` installs Taichi but not the GPU driver. The optimizations need an NVIDIA GPU with CUDA and about 12 GB of memory:
-`tof3d/tof3d_examples.py` (line 188) and `tof3d/tests/check_mma_gpu.py` start Taichi with
-`C.init("cuda", mem_gb=11.0)`. On a card with less memory, lower `mem_gb` in that line of your copy.
+The code is written for an NVIDIA GPU with CUDA. `tof3d/tof3d_examples.py` (line 188) and
+`tof3d/tests/check_mma_gpu.py` start Taichi with `C.init("cuda", mem_gb=11.0)`, which reserves about 11 GB of GPU
+memory; on a card with less memory, lower `mem_gb` in that line of your copy. `pip` installs Taichi but not the GPU
+driver. Without a CUDA GPU, Taichi prints the warning `Arch=[<Arch.cuda: 3>] is not supported, falling back to CPU`
+and runs on the CPU: the quick start below took 49 s on an Apple M4 computer, but the full runs of the article are much slower on a CPU.
 
 ## Quick start
 
