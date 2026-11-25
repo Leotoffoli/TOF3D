@@ -69,8 +69,8 @@ case (300 design iterations, with a checkpoint every 50 iterations):
 python tof3d_examples.py CASE --size SIZE
 ```
 
-Two cases read the final measures of another case from the same results folder, so run that case first: `L_comp`
-before `L_tens`, and `I_inf` before `I_ref`. On the grid of 512 × 256 × 256 elements, the force inverters `M_std` and
+Two cases read the final measures of another case from the same results folder, so run that case first, at the same
+size and without `--smoke`: `L_comp` before `L_tens`, and `I_inf` before `I_ref`. On the grid of 512 × 256 × 256 elements, the force inverters `M_std` and
 `M_rob` did not form a mechanism with the regularization of the released code (`RAA0 = 1e-5`); the article and
 [`docs/ZENODO-README.md`](docs/ZENODO-README.md) give the scaled value of Amendment 11.
 
@@ -85,7 +85,8 @@ From the root of the repository:
 bash tof3d/tests/run_all.sh python
 ```
 
-Four checks run on the CPU: `check_gradients.py cpu`, `check_mg.py exato cpu`, `check_mma.py` and `check_filters.py`.
+Four checks run on the CPU: `check_gradients.py cpu`, `check_mg.py exato cpu` (it needs `TOF3D_FP64=1`, which
+`run_all.sh` sets), `check_mma.py` and `check_filters.py`.
 Two need the CUDA GPU: `check_mg.py iter cuda` and `check_mma_gpu.py`. Each check writes a JSON file next to it and must
 report that it passed (`"passou": true`), except `check_mg_iter.json`, which compares iteration counts and times and has
 no pass or fail. The JSON files committed here come from the code used for the runs of the article; running the checks
@@ -104,8 +105,8 @@ The code writes its outputs under Portuguese names. Each run folder holds:
 | `sigma.npy` | Relaxed von Mises stress of the L-bracket |
 
 Portuguese words in the names of outputs and checks: `alertas` warnings, `cinza` grey measure (mean of
-4x(1 − x) over the active elements), `desenho` design, `erro` error, `exato` exact, `historico` history, `iteracoes` iterations, `metricas`
-measures, `montagem(ns)` multigrid setup(s), `multigrelha` multigrid, `nivel`/`niveis` level(s), `passagens` passes,
+4 xp_i (1 − xp_i) over the active elements), `desenho` design, `erro` error, `exato` exact, `historico` history,
+`iteracoes` iterations, `metricas` measures, `montagem(ns)` multigrid setup(s), `multigrelha` multigrid, `nivel`/`niveis` level(s), `passagens` passes,
 `passou` passed, `referencia` reference, `residuo` residual, `restricao` constraint, `solucoes` linear solves,
 `tamanho` size, `tempo` time, `tensao` stress.
 
