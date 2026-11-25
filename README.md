@@ -80,8 +80,8 @@ python tof3d_examples.py CASE --size SIZE
 ```
 
 Two cases read the final measures of another case from the same results folder, so run that case first, at the same
-size and without `--smoke`: `L_comp` before `L_tens`, and `I_inf` before `I_ref`. On the grid of 512 × 256 × 256 elements, the force inverters `M_std` and
-`M_rob` did not form a mechanism with the regularization of the released code (`RAA0 = 1e-5`); the article and
+size and without `--smoke`: `L_comp` before `L_tens`, and `I_inf` before `I_ref`. On the grid of 512 × 256 × 256
+elements, the force inverters `M_std` and `M_rob` did not form a mechanism with the regularization of the released code (`RAA0 = 1e-5`); the article and
 [`docs/ZENODO-README.md`](docs/ZENODO-README.md) give the scaled value of Amendment 11.
 
 The queue of the article runs, with the size and multigrid policy of each, is in the Zenodo record
@@ -100,9 +100,9 @@ Four checks run on the CPU: `check_gradients.py cpu`, `check_mg.py exato cpu` (i
 Two need the CUDA GPU: `check_mg.py iter cuda` and `check_mma_gpu.py`. Each check writes a JSON file next to it and must
 report that it passed (`"passou": true`), except `check_mg_iter.json`, which compares iteration counts and times and has
 no pass or fail. The JSON files committed here come from the code used for the runs of the article; running the checks
-overwrites them. Without a CUDA GPU, the two GPU checks fall back to the CPU: on an Apple M4 computer all five checks
-passed in about 6.5 minutes, and the multigrid needed more iterations than on the GPU in three of the seven cases of
-`check_mg_iter.json`.
+overwrites them. Without a CUDA GPU, the two GPU checks fall back to the CPU: on an Apple M4 computer `run_all.sh` took
+about 6.4 minutes, every check with a verdict passed, and the multigrid needed more iterations than on the GPU in three
+of the six solves of `check_mg_iter.json`.
 
 ## Output files
 
@@ -118,8 +118,8 @@ The code writes its outputs under Portuguese names. Each run folder holds:
 
 Portuguese words in the names of outputs and checks: `alertas` warnings, `cinza` grey measure (mean of
 4 xp_i (1 − xp_i) over the active elements), `desenho` design, `erro` error, `exato` exact, `historico` history,
-`iteracoes` iterations, `metricas` measures, `montagem(ns)` multigrid setup(s), `multigrelha` multigrid, `nivel`/`niveis` level(s), `passagens` passes,
-`passou` passed, `referencia` reference, `residuo` residual, `restricao` constraint, `solucoes` linear solves,
+`iteracoes` iterations, `metricas` measures, `montagem(ns)` multigrid setup(s), `multigrelha` multigrid,
+`nivel`/`niveis` level(s), `passagens` passes, `passou` passed, `referencia` reference, `residuo` residual, `restricao` constraint, `solucoes` linear solves,
 `tamanho` size, `tempo` time, `tensao` stress.
 
 ## Precision
